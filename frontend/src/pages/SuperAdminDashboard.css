@@ -1,0 +1,250 @@
+
+.super-admin-page {
+  min-height: 100vh;
+  background: #f3f6fb;
+  color: #1e293b;
+  font-family: Arial, sans-serif;
+}
+
+.super-admin-page * {
+  box-sizing: border-box;
+}
+
+.super-admin-header {
+  background: #123b64;
+  color: white;
+  padding: 22px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.super-admin-header h1 {
+  margin: 0 0 7px;
+  font-size: 32px;
+}
+
+.super-admin-header p {
+  margin: 0;
+  color: #dbeafe;
+}
+
+.super-admin-page button {
+  background: #123b64;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 4px 4px 4px 0;
+  font-size: 14px;
+}
+
+.super-admin-page button:hover:not(:disabled) {
+  background: #1d568a;
+}
+
+.super-admin-page button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.super-admin-page button.danger {
+  background: #b42318;
+}
+
+.super-admin-page button.danger:hover:not(:disabled) {
+  background: #912018;
+}
+
+.super-admin-main {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.super-admin-page .super-admin-card {
+  background: white;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #0000000d;
+}
+
+.super-admin-card h2 {
+  margin-top: 0;
+  color: #123b64;
+}
+
+.super-admin-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.super-admin-summary-card {
+  min-width: 0;
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  border-top: 4px solid #3b82f6;
+  box-shadow: 0 3px 12px #0000000d;
+}
+
+.super-admin-summary-card h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.super-admin-summary-card .summary-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #123b64;
+}
+
+.super-admin-page input,
+.super-admin-page select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.super-admin-page input:focus,
+.super-admin-page select:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #3b82f6;
+}
+
+.super-admin-page label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.super-admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.super-admin-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.super-admin-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.super-admin-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.super-admin-table-wrap th,
+.super-admin-table-wrap td {
+  text-align: left;
+  padding: 13px 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.super-admin-table-wrap th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 13px;
+}
+
+.super-admin-table-wrap td {
+  font-size: 14px;
+}
+
+.super-admin-status {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.super-admin-status.active {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.super-admin-status.inactive {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.super-admin-message {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  margin-bottom: 0;
+}
+
+.super-admin-message.success {
+  color: #15803d;
+}
+
+.super-admin-message.error {
+  color: #b42318;
+}
+
+.super-admin-page .muted {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.super-admin-table-wrap .empty-message {
+  text-align: center;
+  color: #64748b;
+  padding: 24px;
+}
+
+@media (max-width: 850px) {
+  .super-admin-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .super-admin-summary-grid,
+  .super-admin-form-grid,
+  .super-admin-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .super-admin-header {
+    padding: 18px 20px;
+  }
+
+  .super-admin-header h1 {
+    font-size: 26px;
+  }
+
+  .super-admin-main {
+    padding: 0 12px;
+    margin-top: 20px;
+  }
+
+  .super-admin-page .super-admin-card {
+    padding: 17px;
+  }
+}

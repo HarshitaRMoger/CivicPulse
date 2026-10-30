@@ -1,0 +1,1361 @@
+
+/* =========================================================
+   CIVICPULSE — CITIZEN DASHBOARD
+   Professional Civic-Tech Theme
+   Colors: Navy + Teal + White
+   ========================================================= */
+
+:root {
+  --cp-ink: #16343b;
+  --cp-muted: #647b84;
+  --cp-primary: #087e8b;
+  --cp-primary-dark: #086575;
+  --cp-primary-soft: #e7f4f5;
+  --cp-navy: #123b4a;
+  --cp-page: #f3f7fa;
+  --cp-surface: #ffffff;
+  --cp-border: #dce7ec;
+  --cp-shadow: 0 12px 32px rgba(20, 54, 67, 0.07);
+  --cp-radius: 18px;
+  --cp-success: #16845b;
+  --cp-warning: #b7791f;
+  --cp-danger: #c24141;
+  --cp-info: #3569a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==================== MAIN PAGE ==================== */
+
+.citizen-dashboard-page {
+  min-height: 100vh;
+  color: var(--cp-ink);
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(8, 126, 139, 0.08),
+      transparent 28rem
+    ),
+    var(--cp-page);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.citizen-dashboard-page button,
+.citizen-dashboard-page input,
+.citizen-dashboard-page select,
+.citizen-dashboard-page textarea {
+  font: inherit;
+}
+
+.citizen-dashboard-page button {
+  cursor: pointer;
+}
+
+.citizen-dashboard-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+/* ==================== NAVIGATION ==================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  padding: 0 clamp(20px, 5vw, 76px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(220, 231, 236, 0.9);
+  box-shadow: 0 3px 16px rgba(20, 54, 67, 0.035);
+  backdrop-filter: blur(14px);
+}
+
+.navbar-brand {
+  color: var(--cp-primary-dark);
+  font-size: 1.55rem;
+  font-weight: 850;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-nav-link {
+  padding: 10px 13px;
+  color: var(--cp-navy);
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.profile-nav-link:hover {
+  color: var(--cp-primary-dark);
+  background: var(--cp-primary-soft);
+}
+
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-button,
+.logout-button,
+.secondary-button,
+.primary-button,
+.history-toggle,
+.mark-read-button,
+.notification-close-button,
+.icon-button {
+  border: 0;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.notification-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 0 14px;
+  color: var(--cp-navy);
+  background: #fff;
+  border: 1px solid var(--cp-border);
+  border-radius: 11px;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.notification-button:hover {
+  background: #f5fbfc;
+  border-color: #b8d8dd;
+}
+
+.notification-badge {
+  display: inline-grid;
+  min-width: 21px;
+  height: 21px;
+  padding: 0 5px;
+  place-items: center;
+  color: #fff;
+  background: #d94343;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.logout-button {
+  min-height: 43px;
+  padding: 0 19px;
+  color: #fff;
+  background: var(--cp-primary-dark);
+  border-radius: 11px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.logout-button:hover,
+.primary-button:hover {
+  background: #075766;
+  box-shadow: 0 7px 18px rgba(8, 101, 117, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ==================== NOTIFICATIONS ==================== */
+
+.notification-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 120;
+  width: min(390px, calc(100vw - 28px));
+  max-height: 470px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 55px rgba(16, 45, 58, 0.18);
+}
+
+.notification-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 18px;
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.notification-panel-header h3 {
+  margin: 0;
+  color: var(--cp-ink);
+  font-size: 1rem;
+}
+
+.notification-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.icon-button,
+.notification-close-button {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: var(--cp-muted);
+  background: #f2f6f8;
+  border-radius: 9px;
+}
+
+.icon-button:hover,
+.notification-close-button:hover {
+  color: var(--cp-primary-dark);
+  background: var(--cp-primary-soft);
+}
+
+.notification-close-button {
+  font-size: 1.35rem;
+}
+
+.spinning {
+  animation: cp-spin 0.9s linear infinite;
+}
+
+@keyframes cp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.notification-list {
+  max-height: 365px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  gap: 11px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #edf2f5;
+}
+
+.notification-item:last-child {
+  border-bottom: 0;
+}
+
+.notification-item.unread {
+  background: #f1f9fa;
+}
+
+.notification-unread-dot {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  background: var(--cp-primary);
+  border-radius: 50%;
+}
+
+.notification-unread-dot.read {
+  background: #c6d2d8;
+}
+
+.notification-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.notification-message {
+  margin: 0 0 8px;
+  color: var(--cp-ink);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.notification-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--cp-muted);
+  font-size: 0.74rem;
+}
+
+.notification-time {
+  color: var(--cp-primary-dark);
+  font-weight: 700;
+}
+
+.mark-read-button {
+  margin-top: 10px;
+  padding: 6px 10px;
+  color: var(--cp-primary-dark);
+  background: #e3f2f3;
+  border-radius: 7px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.mark-read-button:hover {
+  background: #cfe9eb;
+}
+
+/* ==================== DASHBOARD LAYOUT ==================== */
+
+.dashboard {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 38px clamp(18px, 4vw, 58px) 64px;
+}
+
+.dashboard-welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 7px 0 30px;
+}
+
+.dashboard-eyebrow,
+.section-eyebrow {
+  margin: 0 0 10px;
+  color: var(--cp-primary);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 1.35px;
+}
+
+.dashboard-welcome h1 {
+  margin: 0;
+  color: #173d3b;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  line-height: 1.12;
+}
+
+.dashboard-welcome > div > p:last-child {
+  margin: 12px 0 0;
+  color: var(--cp-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.citizen-area {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--cp-primary-dark);
+  background: #e7f4f5;
+  border: 1px solid #d0e9eb;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ==================== SUCCESS / ERROR MESSAGES ==================== */
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 22px;
+  padding: 13px 16px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.message button {
+  flex: 0 0 auto;
+  padding: 0 4px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font-size: 1.3rem;
+}
+
+.success-message {
+  color: #176344;
+  background: #eaf7f0;
+  border-color: #c9ead8;
+}
+
+.error-message {
+  color: #9d3030;
+  background: #fff0f0;
+  border-color: #f2cece;
+}
+
+
+/* =====================================
+   PROFESSIONAL STATISTICS CARDS
+===================================== */
+
+.citizen-report-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 132px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e1e9ed;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(18, 59, 74, 0.045);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(18, 59, 74, 0.09);
+}
+
+/* Icon containers */
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+}
+
+.stat-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+/* Individual status colors */
+
+.stat-total {
+  color: #28628a;
+  background: #eaf2f9;
+}
+
+.stat-pending {
+  color: #a66b16;
+  background: #fff5e5;
+}
+
+.stat-progress {
+  color: #087e8b;
+  background: #e5f4f5;
+}
+
+.stat-resolved {
+  color: #16845b;
+  background: #e7f5ed;
+}
+
+/* Statistics text */
+
+.stat-content {
+  min-width: 0;
+}
+
+.stat-content p {
+  margin: 0 0 7px;
+  color: #647b84;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.stat-content h2 {
+  margin: 0;
+  color: #16343b;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.stat-description {
+  display: block;
+  margin-top: 7px;
+  color: #91a0a7;
+  font-size: 0.75rem;
+}
+
+/* Responsive statistics */
+
+@media (max-width: 980px) {
+  .citizen-report-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .citizen-report-stats {
+    gap: 10px;
+  }
+
+  .stat-card {
+    min-height: 110px;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+  }
+
+  .stat-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .stat-content p {
+    font-size: 0.76rem;
+  }
+
+  .stat-content h2 {
+    font-size: 1.55rem;
+  }
+
+  .stat-description {
+    font-size: 0.66rem;
+  }
+}
+
+/* ==================== FORM AND REPORT SECTIONS ==================== */
+
+.issue-section {
+  margin-top: 25px;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--cp-ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.section-heading p:not(.section-eyebrow) {
+  margin: 8px 0 0;
+  color: var(--cp-muted);
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.issue-section form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #294650;
+  font-size: 0.87rem;
+  font-weight: 750;
+}
+
+.form-group select,
+.form-group textarea,
+.form-group input[type="file"],
+.citizen-report-filters input,
+.citizen-report-filters select {
+  width: 100%;
+  color: var(--cp-ink);
+  background: #fbfdfe;
+  border: 1px solid #d8e4e9;
+  border-radius: 11px;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.form-group select,
+.citizen-report-filters select,
+.citizen-report-filters input {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.form-group textarea {
+  min-height: 132px;
+  padding: 14px 15px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-group input[type="file"] {
+  min-height: 48px;
+  padding: 9px 12px;
+  border-style: dashed;
+  color: var(--cp-muted);
+  font-size: 0.85rem;
+}
+
+.form-group select:focus,
+.form-group textarea:focus,
+.form-group input[type="file"]:focus,
+.citizen-report-filters input:focus,
+.citizen-report-filters select:focus {
+  background: #fff;
+  border-color: var(--cp-primary);
+  box-shadow: 0 0 0 4px rgba(8, 126, 139, 0.12);
+}
+
+.form-group textarea::placeholder,
+.citizen-report-filters input::placeholder {
+  color: #91a2aa;
+}
+
+.form-group small {
+  color: var(--cp-muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.character-count {
+  align-self: flex-end;
+  margin-top: -3px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==================== PHOTO PREVIEW ==================== */
+
+.photo-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 7px;
+  padding: 12px;
+  background: #f6fafb;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+}
+
+.photo-preview img {
+  width: 116px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.photo-preview button {
+  padding: 8px 11px;
+  color: var(--cp-danger);
+  background: #fff;
+  border: 1px solid #f0d4d4;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.primary-button {
+  justify-self: start;
+  min-height: 48px;
+  padding: 0 22px;
+  color: #fff;
+  background: var(--cp-primary-dark);
+  border-radius: 11px;
+  font-size: 0.9rem;
+  font-weight: 750;
+  box-shadow: 0 5px 13px rgba(8, 101, 117, 0.13);
+}
+
+.secondary-button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 14px;
+  color: var(--cp-primary-dark);
+  background: #eaf5f6;
+  border: 1px solid #d3e9eb;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.secondary-button:hover {
+  background: #dceff1;
+}
+
+/* ==================== SEARCH AND FILTERS ==================== */
+
+.citizen-report-filters {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 1.8fr)
+    minmax(150px, 0.8fr)
+    minmax(145px, 0.8fr)
+    auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.citizen-report-filters input,
+.citizen-report-filters select {
+  min-width: 0;
+  font-size: 0.84rem;
+}
+
+.report-filter-count {
+  margin: 14px 0 17px;
+  color: var(--cp-muted);
+  font-size: 0.79rem;
+}
+
+.history-toggle {
+  min-height: 38px;
+  padding: 0 12px;
+  color: var(--cp-primary-dark);
+  background: transparent;
+  border: 1px solid #cfe2e6;
+  border-radius: 9px;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.history-toggle:hover {
+  background: var(--cp-primary-soft);
+}
+
+/* ==================== SUBMITTED REPORTS ==================== */
+
+.submitted-reports-list {
+  display: grid;
+  gap: 15px;
+}
+
+.submitted-report {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--cp-border);
+  border-radius: 15px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.submitted-report:hover {
+  border-color: #c5dce1;
+  box-shadow: 0 8px 22px rgba(20, 54, 67, 0.055);
+}
+
+.report-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.report-id {
+  margin: 0 0 5px;
+  color: var(--cp-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.report-card-header h3 {
+  margin: 0;
+  color: var(--cp-ink);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+/* ==================== STATUS BADGES ==================== */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status-submitted {
+  color: #315f9b;
+  background: #eaf2fc;
+}
+
+.status-under-review {
+  color: #946014;
+  background: #fff5df;
+}
+
+.status-in-progress {
+  color: #087080;
+  background: #e3f5f7;
+}
+
+.status-resolved {
+  color: #16734f;
+  background: #e6f6ed;
+}
+
+.status-rejected {
+  color: #a33333;
+  background: #ffeded;
+}
+
+/* ==================== REPORT DETAILS ==================== */
+
+.report-description {
+  margin: 14px 0;
+  color: #526b75;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  color: var(--cp-muted);
+  font-size: 0.76rem;
+}
+
+.report-meta strong {
+  color: #3b5963;
+}
+
+.report-photo {
+  margin-top: 15px;
+}
+
+.report-photo img {
+  display: block;
+  width: min(100%, 280px);
+  max-height: 190px;
+  object-fit: cover;
+  border: 1px solid var(--cp-border);
+  border-radius: 11px;
+}
+
+/* ==================== RESOLUTION PROGRESS ==================== */
+
+.issue-progress {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f7fafb;
+  border: 1px solid #e7eef1;
+  border-radius: 12px;
+}
+
+.issue-progress h4 {
+  margin: 0 0 16px;
+  color: #34515b;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.progress-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.progress-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
+}
+
+.progress-step:not(:last-child)::after {
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 19px);
+  width: calc(100% - 30px);
+  height: 2px;
+  background: #dce6e9;
+  content: "";
+}
+
+.progress-step.completed:not(:last-child)::after {
+  background: #58a88a;
+}
+
+.progress-dot {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  color: #758992;
+  background: #e7eef1;
+  border: 2px solid #e7eef1;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.progress-step.completed .progress-dot {
+  color: #fff;
+  background: var(--cp-success);
+  border-color: var(--cp-success);
+}
+
+.progress-step.current .progress-dot {
+  color: var(--cp-primary-dark);
+  background: #fff;
+  border-color: var(--cp-primary);
+  box-shadow: 0 0 0 4px rgba(8, 126, 139, 0.11);
+}
+
+.progress-label {
+  color: #778b93;
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.progress-step.completed .progress-label,
+.progress-step.current .progress-label {
+  color: var(--cp-ink);
+}
+
+.report-status-note {
+  margin: 17px 0 0;
+  padding: 11px 13px;
+  color: #963e3e;
+  background: #fff2f2;
+  border-radius: 9px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* ==================== STATUS HISTORY ==================== */
+
+.report-history {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #edf2f4;
+}
+
+.history-content {
+  margin-top: 13px;
+  padding: 14px;
+  color: var(--cp-muted);
+  background: #f8fafb;
+  border-radius: 10px;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.history-content p {
+  margin: 0;
+}
+
+.history-content .error-text {
+  color: var(--cp-danger);
+}
+
+.history-list {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.history-list li {
+  padding-left: 4px;
+}
+
+.history-entry strong {
+  display: block;
+  color: var(--cp-ink);
+  font-size: 0.84rem;
+}
+
+.history-entry small {
+  display: block;
+  margin-top: 3px;
+  color: var(--cp-muted);
+  font-size: 0.74rem;
+}
+
+.history-entry p {
+  margin-top: 5px;
+  color: #526b75;
+}
+
+/* ==================== EMPTY AND LOADING STATES ==================== */
+
+.empty-state {
+  padding: 30px 18px;
+  color: var(--cp-muted);
+  background: #f8fbfc;
+  border: 1px dashed #d5e3e8;
+  border-radius: 13px;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.empty-state > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+  color: var(--cp-ink);
+  font-size: 1rem;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+.citizen-dashboard-page button:focus-visible,
+.citizen-dashboard-page a:focus-visible {
+  outline: 3px solid rgba(8, 126, 139, 0.35);
+  outline-offset: 3px;
+}
+
+/* ==================== TABLET RESPONSIVE ==================== */
+
+@media (max-width: 980px) {
+  .citizen-report-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .citizen-report-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .citizen-report-filters input {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
+
+@media (max-width: 640px) {
+  .navbar {
+    min-height: 62px;
+    padding: 10px 15px;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar-actions {
+    gap: 6px;
+  }
+
+  .profile-nav-link {
+    padding: 8px 6px;
+    font-size: 0.78rem;
+  }
+
+  .notification-button {
+    min-height: 38px;
+    gap: 5px;
+    padding: 0 9px;
+    font-size: 0.76rem;
+  }
+
+  .notification-button > span:first-child {
+    display: none;
+  }
+
+  .logout-button {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+  }
+
+  .dashboard {
+    padding: 28px 14px 42px;
+  }
+
+  .dashboard-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    margin: 4px 0 22px;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-welcome > div > p:last-child {
+    font-size: 0.9rem;
+  }
+
+  .citizen-report-stats {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .stat-card {
+    min-height: 94px;
+    gap: 10px;
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+
+  .stat-icon {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+  }
+
+  .stat-card p {
+    font-size: 0.73rem;
+  }
+
+  .stat-card h2 {
+    font-size: 1.45rem;
+  }
+
+  .issue-section {
+    margin-top: 17px;
+    padding: 19px 15px;
+    border-radius: 15px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.17rem;
+  }
+
+  .section-heading p:not(.section-eyebrow) {
+    font-size: 0.84rem;
+  }
+
+  .secondary-button {
+    width: 100%;
+  }
+
+  .citizen-report-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .citizen-report-filters input {
+    grid-column: auto;
+  }
+
+  .submitted-report {
+    padding: 15px;
+  }
+
+  .report-card-header {
+    flex-direction: column;
+  }
+
+  .progress-steps {
+    gap: 3px;
+  }
+
+  .progress-step:not(:last-child)::after {
+    left: calc(50% + 15px);
+    width: calc(100% - 20px);
+  }
+
+  .progress-label {
+    font-size: 0.62rem;
+  }
+
+  .notification-panel {
+    right: -54px;
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .citizen-dashboard-page *,
+  .citizen-dashboard-page *::before,
+  .citizen-dashboard-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================
+   CIVICPULSE - COMPACT PROFESSIONAL FONTS
+========================================= */
+
+/* Welcome heading */
+.dashboard-welcome h1 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+/* Welcome description */
+.dashboard-welcome > div > p:last-child {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Small section labels */
+.dashboard-eyebrow,
+.section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+}
+
+/* Section headings */
+.section-heading h2 {
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+/* Section descriptions */
+.section-heading p:not(.section-eyebrow) {
+  font-size: 0.85rem;
+}
+
+/* Statistics labels */
+.stat-content p {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+/* Statistics numbers */
+.stat-content h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+/* Statistics descriptions */
+.stat-description {
+  font-size: 0.72rem;
+}
+
+/* Form labels */
+.form-group label {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+/* Form inputs */
+.form-group select,
+.form-group textarea,
+.citizen-report-filters input,
+.citizen-report-filters select {
+  font-size: 0.85rem;
+}
+
+/* Buttons */
+.primary-button,
+.secondary-button {
+  font-size: 0.84rem;
+}
+
+/* Report headings */
+.report-card-header h3 {
+  font-size: 1rem;
+}
+
+/* Report descriptions */
+.report-description {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Status labels */
+.status-badge {
+  font-size: 0.7rem;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .dashboard-welcome h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1.1rem;
+  }
+
+  .stat-content h2 {
+    font-size: 1.45rem;
+  }
+}
+
+/* Professional Green Logout Button */
+
+.logout-button {
+  color: #ffffff !important;
+  background: #16845b !important;
+  border: 1px solid #16845b;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  color: #ffffff !important;
+  background: #116b49 !important;
+  border-color: #116b49;
+  box-shadow: 0 5px 14px rgba(22, 132, 91, 0.2);
+  transform: translateY(-1px);
+}
