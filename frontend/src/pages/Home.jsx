@@ -285,42 +285,44 @@ export default function Home() {
           </div>
 
           <div className="feature-grid">
-            <article className="feature-card">
-              <div className="feature-icon icon-blue">⌁</div>
-              <h3>Roads and potholes</h3>
-              <p>Report damaged roads, potholes and unsafe road conditions.</p>
-            </article>
 
-            <article className="feature-card">
-              <div className="feature-icon icon-green">♻</div>
-              <h3>Garbage and waste</h3>
-              <p>Bring attention to overflowing bins, litter and illegal dumping.</p>
-            </article>
+    <div className="feature-card card-roads">
+        <div className="feature-icon icon-blue">⌁</div>
+        <h3>Roads and potholes</h3>
+        <p>Report damaged roads, potholes and unsafe road conditions.</p>
+    </div>
 
-            <article className="feature-card">
-              <div className="feature-icon icon-orange">☼</div>
-              <h3>Streetlights</h3>
-              <p>Report broken lights and poorly illuminated public spaces.</p>
-            </article>
+    <div className="feature-card card-garbage">
+        <div className="feature-icon icon-green">♻</div>
+        <h3>Garbage and waste</h3>
+        <p>Bring attention to overflowing bins, litter and illegal dumping.</p>
+    </div>
 
-            <article className="feature-card">
-              <div className="feature-icon icon-purple">≈</div>
-              <h3>Water supply</h3>
-              <p>Report water supply interruptions and related local concerns.</p>
-            </article>
+    <div className="feature-card card-streetlights">
+        <div className="feature-icon icon-orange">☼</div>
+        <h3>Streetlights</h3>
+        <p>Report broken lights and poorly illuminated public spaces.</p>
+    </div>
 
-            <article className="feature-card">
-              <div className="feature-icon icon-teal">⌁</div>
-              <h3>Drainage problems</h3>
-              <p>Report blocked drains, waterlogging and drainage concerns.</p>
-            </article>
+    <div className="feature-card card-water">
+        <div className="feature-icon icon-purple">≈</div>
+        <h3>Water supply</h3>
+        <p>Report water supply interruptions and related local concerns.</p>
+    </div>
 
-            <article className="feature-card">
-              <div className="feature-icon icon-red">＋</div>
-              <h3>Other civic issues</h3>
-              <p>Bring other public infrastructure and neighbourhood problems to attention.</p>
-            </article>
-          </div>
+    <div className="feature-card card-drainage">
+        <div className="feature-icon icon-teal">⌁</div>
+        <h3>Drainage problems</h3>
+        <p>Report blocked drains, waterlogging and drainage concerns.</p>
+    </div>
+
+    <div className="feature-card card-other">
+        <div className="feature-icon icon-red">+</div>
+        <h3>Other civic issues</h3>
+        <p>Bring other public infrastructure and neighbourhood problems to attention.</p>
+    </div>
+
+</div>
         </section>
 
         <section className="content-section platform-section">
@@ -601,9 +603,13 @@ export default function Home() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 CivicPulse</span>
-          <span>Built for better communities.</span>
-        </div>
+    <span>© 2026 CivicPulse. All Rights Reserved.</span>
+
+    <span>
+        Designed & Developed by
+        <strong> Harshita Moger</strong>
+    </span>
+</div>
       </footer>
     </>
   );

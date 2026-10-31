@@ -248,3 +248,39 @@
     padding: 17px;
   }
 }
+/* Super Admin welcome section only */
+.super-admin-page .super-admin-welcome {
+    min-height: 230px;
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 35, 60, 0.65),
+            rgba(5, 35, 60, 0.20)
+        ),
+        url("./image/city1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.super-admin-page .super-admin-welcome h2,
+.super-admin-page .super-admin-welcome p {
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.super-admin-page .super-admin-welcome h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+

@@ -239,20 +239,24 @@ function SuperAdminDashboard() {
       </header>
 
       <main className="super-admin-main">
-        <section className="super-admin-card">
-          <h2>Welcome, Super Admin</h2>
-          <p>Manage area administrators and community localities from one place.</p>
-          <button type="button" onClick={loadDashboard} disabled={loading}>
-            {loading ? "Refreshing..." : "Refresh Dashboard"}
-          </button>
+        <section className="super-admin-card super-admin-welcome">
+  <h2>Welcome, Super Admin</h2>
 
-          {message && (
-            <p className={`super-admin-message ${messageType}`}
-               role="status" aria-live="polite">
-              {message}
-            </p>
-          )}
-        </section>
+  <p>
+    Manage area administrators and community localities from one place.
+  </p>
+
+  <button type="button" onClick={loadDashboard} disabled={loading}>
+    {loading ? "Refreshing..." : "Refresh Dashboard"}
+  </button>
+
+  {message && (
+    <p className={`super-admin-message ${messageType}`}
+       role="status" aria-live="polite">
+      {message}
+    </p>
+  )}
+</section>
 
         <section className="super-admin-summary-grid">
           <SummaryCard title="Total Area Admins" count={admins.length} />

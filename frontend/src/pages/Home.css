@@ -1133,3 +1133,460 @@ select:focus-visible {
         flex-direction: column;
     }
 }
+/* Issue cards container */
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Common card design */
+.issue-card {
+  position: relative;
+  min-height: 250px;
+  padding: 25px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark overlay for readable text */
+.issue-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 20, 40, 0.88),
+    rgba(0, 20, 40, 0.15)
+  );
+  z-index: 0;
+}
+
+/* Keep card content above overlay */
+.issue-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.issue-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Individual real-photo backgrounds */
+.card-roads {
+  background-image: url("./image/road.webp");
+}
+
+.card-garbage {
+  background-image: url("./image/garbage.webp");
+}
+
+.card-streetlights {
+  background-image: url("./image/streetlight.webp");
+}
+
+.card-water {
+  background-image: url("./image/water.jpg");
+}
+
+.card-drainage {
+  background-image: url("./image/drainage.jpg");
+}
+
+.card-other {
+  background-image: url("./image/other.webp");
+}
+
+/* Icon size */
+.issue-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #123c63;
+  font-size: 22px;
+}
+
+/* Card heading */
+.issue-card h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: white;
+}
+
+/* Card description */
+.issue-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .issues-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .issues-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-card {
+    min-height: 230px;
+  }
+}
+
+/* Common card design */
+.issue-card {
+  position: relative;
+  height: 230px;
+  padding: 25px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+/* Dark overlay */
+.issue-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 20, 40, 0.85),
+    rgba(0, 20, 40, 0.15)
+  );
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+.issue-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual backgrounds */
+.card-roads {
+  background-image: url("./image/road.webp");
+}
+
+.card-garbage {
+  background-image: url("./image/garbage.webp");
+}
+
+.card-streetlights {
+  background-image: url("./image/streetlight.webp");
+}
+
+.card-water {
+  background-image: url("./image/water.jpg");
+}
+
+.card-drainage {
+  background-image: url("./image/drainage.jpg");
+}
+
+.card-other {
+  background-image: url("./image/other.webp");
+}
+
+/* Icons */
+.issue-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #123c63;
+  font-size: 22px;
+}
+
+/* Headings */
+.issue-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: white;
+}
+
+/* Descriptions */
+.issue-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .issues-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .issues-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-card {
+    height: 220px;
+  }
+}
+
+/* Fix issue card text visibility */
+.issue-card h3,
+.issue-card p {
+    color: #ffffff !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Improve image visibility */
+.issue-card::before {
+    background: linear-gradient(
+        to top,
+        rgba(0, 15, 35, 0.85),
+        rgba(0, 15, 35, 0.25)
+    );
+}
+
+/* Keep icons above the overlay */
+.issue-icon {
+    position: relative;
+    z-index: 2;
+}
+/* Civic issue cards */
+.issues-grid .feature-card {
+    position: relative;
+    height: 240px;
+    padding: 25px;
+    border-radius: 18px;
+    overflow: hidden;
+    isolation: isolate;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Dark overlay */
+.issues-grid .feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 15, 35, 0.90) 0%,
+        rgba(0, 15, 35, 0.45) 55%,
+        rgba(0, 15, 35, 0.10) 100%
+    );
+    z-index: -1;
+}
+
+/* White text */
+.issues-grid .feature-card h3 {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 12px 0 8px;
+}
+
+.issues-grid .feature-card p {
+    color: #ffffff !important;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Icon */
+.issues-grid .feature-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .issues-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .issues-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .issues-grid .feature-card {
+        height: 220px;
+    }
+}
+.card-roads {
+    background-position: center;
+}
+
+.card-garbage {
+    background-position: center;
+}
+
+.card-streetlights {
+    background-position: center;
+}
+
+.card-water {
+    background-position: center;
+}
+
+.card-drainage {
+    background-position: center;
+}
+
+.card-other {
+    background-position: center;
+}
+
+/* CivicPulse issue cards */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.feature-card {
+    position: relative;
+    height: 250px;
+    padding: 25px;
+    border-radius: 18px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    border: none;
+    isolation: isolate;
+}
+
+/* Dark overlay for readable text */
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(4, 20, 40, 0.95) 0%,
+        rgba(4, 20, 40, 0.60) 50%,
+        rgba(4, 20, 40, 0.10) 100%
+    );
+    z-index: -1;
+}
+
+/* Text */
+.feature-card h3 {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 12px 0 8px;
+}
+
+.feature-card p {
+    color: #ffffff !important;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Icons */
+.feature-card .feature-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+/* Individual images */
+.card-roads {
+    background-image: url("./image/road.webp");
+}
+
+.card-garbage {
+    background-image: url("./image/garbage.webp");
+}
+
+.card-streetlights {
+    background-image: url("./image/streetlight.webp");
+}
+
+.card-water {
+    background-image: url("./image/water.jpg");
+}
+
+.card-drainage {
+    background-image: url("./image/drainage.jpg");
+}
+
+.card-other {
+    background-image: url("./image/other.webp");
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        height: 230px;
+    }
+}
